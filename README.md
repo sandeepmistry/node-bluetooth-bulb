@@ -1,7 +1,7 @@
 node-bluetooth-bulb
 ===================
 
-A node.js library for the [blue bulb Bluetooth Bulb(http://www.bluebulb.com/)
+A node.js library for the [blue bulb Bluetooth Bulb](http://www.bluebulb.com/)
 
 Special thanks to [@mrose17](https://github.com/mrose17) for sending me a bulb!
 
