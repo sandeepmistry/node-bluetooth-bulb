@@ -1,0 +1,21 @@
+{
+  "name": "bluetooth-bulb",
+  "version": "0.0.1",
+  "description": "A node.js library for the BluetoothBulb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://sandeepmistry@github.com/sandeepmistry/node-bluetooth-bulb.git"
+  },
+  "keywords": [
+    "Bluetooth Bulb",
+    "Blue Bulb",
+    "BluetoothBulb",
+    "BlueBulb"
+  ],
+  "author": "Sandeep Mistry <sandeep.mistry@gmail.com>",
+  "license": "MIT"
+}
