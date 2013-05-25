@@ -136,4 +136,34 @@ BluetoothBulb.prototype.setBlue = function(value, callback) {
   this.setLight(BLUE_LIGHT_UUID, value, callback);
 };
 
+BluetoothBulb.prototype.getName = function(callback) {
+  this.readCharacteristic(NAME_UUID, function(data) {
+    callback(data.toString());
+  });
+};
+
+BluetoothBulb.prototype.hasPaired = function(callback) {
+  this.readCharacteristic(HAS_PAIRED_UUID, function(data) {
+    callback(data.readUInt8(0) ? true : false);
+  });
+};
+
+BluetoothBulb.prototype.unpair = function(callback) {
+  this.writeCharacteristic(UNPAIR_UUID, new Buffer([0x01]), function(){
+    setTimeout(callback, 75); 
+  });
+};
+
+BluetoothBulb.prototype.keepAlive = function(callback) {
+  this.writeCharacteristic(KEEP_ALIVE_PAIRED_UUID, new Buffer([0x01]), function(){
+    setTimeout(callback, 75); 
+  });
+};
+
+BluetoothBulb.prototype.isPaired = function(callback) {
+  this.readCharacteristic(IS_PAIRED_UUID, function(data) {
+    callback(data.readUInt8(0) ? true : false);
+  });
+};
+
 module.exports = BluetoothBulb;

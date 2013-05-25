@@ -61,6 +61,32 @@ BluetoothBulb.discover(function(bluetoothBulb) {
       });
     },
     function(callback) {
+      bluetoothBulb.getName(function(name) {
+        console.log('name = ' + name);
+        callback();
+      });
+    },
+    function(callback) {
+      bluetoothBulb.hasPaired(function(hasPaired) {
+        console.log('hasPaired = ' + hasPaired);
+        callback();
+      });
+    },
+    function(callback) {
+      console.log('keepAlive');
+      bluetoothBulb.keepAlive(callback);
+    },
+    function(callback) {
+      bluetoothBulb.isPaired(function(isPaired) {
+        console.log('isPaired = ' + isPaired);
+        callback();
+      });
+    },
+    // function(callback) {
+    //   console.log('unpair');
+    //   bluetoothBulb.unpair(callback);
+    // },
+    function(callback) {
       console.log('disconnect');
       bluetoothBulb.disconnect(callback);
     }
