@@ -75,7 +75,7 @@ __Has Paired__
 
 __Keep Alive__
 
-    // no-op, keeps connected alive
+    // no-op, keeps connection alive
 
     bluetoothBulb.keepAlive(callback);
 
