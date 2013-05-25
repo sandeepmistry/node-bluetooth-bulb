@@ -1,7 +1,7 @@
 node-bluetooth-bulb
 ===================
 
-A node.js library for the (blue bulb Bluetooth Bulb)[http://www.bluebulb.com/]
+A node.js library for the [blue bulb Bluetooth Bulb(http://www.bluebulb.com/)
 
 Special thanks to [@mrose17](https://github.com/mrose17) for sending me a bulb!
 
@@ -13,7 +13,7 @@ __Notes__:
 Install
 -------
 
-npm install bluetooth-bulb
+    npm install bluetooth-bulb
 
 Usage
 -----
@@ -35,7 +35,7 @@ __Disconnect__
 __Pair__
 
     // If pair code has not been set previously, it must be set within 10s of powering the bulb.
-    // Otherwise, the pair must be called, immediately after connect.
+    // Otherwise, pair must be called, immediately after connect (otherwise the bulb will terminate the connection)
 
     bluetoothBulb.pair(code, callback); // code must be 0 - 255
 
@@ -55,21 +55,21 @@ __Set Lights__
 
     // value range is: 0 - 125
 
-    bluetoothBulb.setGreen(value, callback;
+    bluetoothBulb.setGreen(value, callback);
 
-    bluetoothBulb.setRed(value, callback;
+    bluetoothBulb.setRed(value, callback);
 
-    bluetoothBulb.setWhite(value, callback;
+    bluetoothBulb.setWhite(value, callback);
 
-    bluetoothBulb.setBlue(value, callback;
+    bluetoothBulb.setBlue(value, callback);
 
 __Get Name__
 
-    bbluetoothBulb.getBlue(callback(name));
+    bbluetoothBulb.getName(callback(name));
 
 __Has Paired__
 
-    // is the bulb paired with any devices
+    // is the bulb paired with any devices (pair codes stored)
 
     bluetoothBulb.hasPaired(callback(hasPaired));
 
