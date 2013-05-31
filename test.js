@@ -9,82 +9,74 @@ BluetoothBulb.discover(function(bluetoothBulb) {
       bluetoothBulb.connect(callback);
     },
     function(callback) {
-      console.log('discoverServices');
-      bluetoothBulb.discoverServices(callback);
-    },
-    function(callback) {
-      console.log('discoverCharacteristics');
-      bluetoothBulb.discoverCharacteristics(callback);
-    },
-    function(callback) {
       console.log('pair');
       bluetoothBulb.pair(0x01, callback);
     },
     function(callback) {
-      console.log('set green');
-      bluetoothBulb.setGreen(0, callback);
+      console.log('set green brightness');
+      bluetoothBulb.setGreenBrightness(0, callback);
     },
     function(callback) {
-      bluetoothBulb.getGreen(function(value) {
-        console.log('green = ' + value);
+      bluetoothBulb.getGreenBrightness(function(value) {
+        console.log('green brightness = ' + value);
         callback();
       });
     },
     function(callback) {
-      console.log('set red');
-      bluetoothBulb.setRed(0, callback);
+      console.log('set red brightness');
+      bluetoothBulb.setRedBrightness(0, callback);
     },
     function(callback) {
-      bluetoothBulb.getRed(function(value) {
-        console.log('red = ' + value);
+      bluetoothBulb.getRedBrightness(function(value) {
+        console.log('red brightness = ' + value);
         callback();
       });
     },
     function(callback) {
-      console.log('set white');
-      bluetoothBulb.setWhite(125, callback);
+      console.log('set white brightness');
+      bluetoothBulb.setWhiteBrightness(125, callback);
     },
     function(callback) {
-      bluetoothBulb.getWhite(function(value) {
-        console.log('white = ' + value);
+      bluetoothBulb.getWhiteBrightness(function(value) {
+        console.log('white brightness = ' + value);
         callback();
       });
     },
     function(callback) {
-      console.log('set blue');
-      bluetoothBulb.setBlue(0, callback);
+      console.log('set blue brightness');
+      bluetoothBulb.setBlueBrightness(0, callback);
     },
     function(callback) {
-      bluetoothBulb.getBlue(function(value) {
-        console.log('blue = ' + value);
+      bluetoothBulb.getBlueBrightness(function(value) {
+        console.log('blue brightness = ' + value);
         callback();
       });
     },
     function(callback) {
-      bluetoothBulb.getName(function(name) {
-        console.log('name = ' + name);
+      bluetoothBulb.getFriendlyName(function(name) {
+        console.log('friendly name = ' + name);
         callback();
       });
     },
     function(callback) {
-      bluetoothBulb.hasPaired(function(hasPaired) {
-        console.log('hasPaired = ' + hasPaired);
+      bluetoothBulb.getPairCounter(function(pairCounter) {
+        console.log('pair counter = ' + pairCounter);
         callback();
       });
     },
     function(callback) {
-      console.log('keepAlive');
-      bluetoothBulb.keepAlive(callback);
+      console.log('disconnectWorkaround');
+      bluetoothBulb.disconnectWorkaround(callback);
     },
     function(callback) {
-      bluetoothBulb.isPaired(function(isPaired) {
-        console.log('isPaired = ' + isPaired);
+      bluetoothBulb.getBulbState(function(bulbState) {
+        console.log('bulbState = ' + bulbState);
         callback();
       });
     },
     // function(callback) {
-    //   console.log('unpair');
-    //   bluetoothBulb.unpair(callback);
+    //   console.log('removePairs');
+    //   bluetoothBulb.removePairs(callback);
     // },
     function(callback) {
       console.log('disconnect');
