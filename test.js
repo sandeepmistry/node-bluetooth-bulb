@@ -2,6 +2,12 @@ var async = require('async');
 
 var BluetoothBulb = require('./index');
 
+var pairKey = 0x01;
+var red     = 0;
+var green   = 100;
+var blue    = 0;
+var white   = 0;
+
 BluetoothBulb.discover(function(bluetoothBulb) {
   async.series([
     function(callback) {
@@ -10,11 +16,41 @@ BluetoothBulb.discover(function(bluetoothBulb) {
     },
     function(callback) {
       console.log('pair');
-      bluetoothBulb.pair(0x01, callback);
+      bluetoothBulb.pair(pairKey, callback);
+    },
+    function(callback) {
+      bluetoothBulb.getDeviceName(function(value) {
+        console.log('device name = ' + value);
+        callback();
+      });
+    },
+    function(callback) {
+      bluetoothBulb.getModelNumber(function(value) {
+        console.log('model number = ' + value);
+        callback();
+      });
+    },
+    function(callback) {
+      bluetoothBulb.getFirmwareRevision(function(value) {
+        console.log('firmware revision = ' + value);
+        callback();
+      });
+    },
+    function(callback) {
+      bluetoothBulb.getHardwareRevision(function(value) {
+        console.log('hardware revision = ' + value);
+        callback();
+      });
+    },
+    function(callback) {
+      bluetoothBulb.getManufacturerName(function(value) {
+        console.log('manufacturer number = ' + value);
+        callback();
+      });
     },
     function(callback) {
       console.log('set green brightness');
-      bluetoothBulb.setGreenBrightness(0, callback);
+      bluetoothBulb.setGreenBrightness(green, callback);
     },
     function(callback) {
       bluetoothBulb.getGreenBrightness(function(value) {
@@ -24,7 +60,7 @@ BluetoothBulb.discover(function(bluetoothBulb) {
     },
     function(callback) {
       console.log('set red brightness');
-      bluetoothBulb.setRedBrightness(0, callback);
+      bluetoothBulb.setRedBrightness(red, callback);
     },
     function(callback) {
       bluetoothBulb.getRedBrightness(function(value) {
@@ -34,7 +70,7 @@ BluetoothBulb.discover(function(bluetoothBulb) {
     },
     function(callback) {
       console.log('set white brightness');
-      bluetoothBulb.setWhiteBrightness(125, callback);
+      bluetoothBulb.setWhiteBrightness(white, callback);
     },
     function(callback) {
       bluetoothBulb.getWhiteBrightness(function(value) {
@@ -44,7 +80,7 @@ BluetoothBulb.discover(function(bluetoothBulb) {
     },
     function(callback) {
       console.log('set blue brightness');
-      bluetoothBulb.setBlueBrightness(0, callback);
+      bluetoothBulb.setBlueBrightness(blue, callback);
     },
     function(callback) {
       bluetoothBulb.getBlueBrightness(function(value) {
@@ -77,6 +113,9 @@ BluetoothBulb.discover(function(bluetoothBulb) {
     // function(callback) {
     //   console.log('removePairs');
     //   bluetoothBulb.removePairs(callback);
+    // },
+    // function(callback) {
+    //   setTimeout(callback, 1000);
     // },
     function(callback) {
       console.log('disconnect');
