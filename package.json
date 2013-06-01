@@ -1,6 +1,6 @@
 {
   "name": "bluetooth-bulb",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A node.js library for the BluetoothBulb",
   "main": "index.js",
   "scripts": {
@@ -11,9 +11,10 @@
     "url": "https://github.com/sandeepmistry/node-bluetooth-bulb.git"
   },
   "keywords": [
-    "BlueClick",
+    "Blue Click"
     "Bluetooth Bulb",
     "Blue Bulb",
+    "BlueClick",
     "BluetoothBulb",
     "BlueBulb"
   ],

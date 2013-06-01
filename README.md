@@ -1,13 +1,14 @@
 node-bluetooth-bulb
 ===================
 
-A node.js library for the [blue bulb Bluetooth Bulb](http://www.bluebulb.com/)
+A node.js library for the [BlueClick Bluetooth Bulb](http://www.bluebulb.com/)
 
 Special thanks to [@mrose17](https://github.com/mrose17) for sending me a bulb!
 
 __Notes__:
-  * the module is very unstable, the Bluetooth Bulb has very picky timing
-  * currently only works on Linux, due to timing issues with CoreBluetooth on OS X (bulb disconnects during characteristic discover)
+  * currently only works on Linux, due to the follow issues with CoreBluetooth on OS X:
+      * bulb disconnects during characteristic discover
+      * cannot write to hande without response
 
 
 Install
@@ -34,59 +35,80 @@ __Disconnect__
 
 __Pair__
 
-    // If pair code has not been set previously, it must be set within 10s of powering the bulb.
+    // If pair key has not been set previously, it must be set within 10s of powering the bulb.
     // Otherwise, pair must be called, immediately after connect (otherwise the bulb will terminate the connection)
 
-    bluetoothBulb.pair(code, callback); // code must be 0 - 255
+    bluetoothBulb.pair(key, callback); // key must be 0 - 255
 
-__Get Lights__
-
-    // value range is: 0 - 125
-
-    bluetoothBulb.getGreen(callback(value));
-
-    bluetoothBulb.getRed(callback(value));
-
-    bluetoothBulb.getWhite(callback(value));
-
-    bluetoothBulb.getBlue(callback(value));
-
-__Set Lights__
+__Get Brightness__
 
     // value range is: 0 - 125
 
-    bluetoothBulb.setGreen(value, callback);
+    bluetoothBulb.getGreenBrightness(callback(value));
 
-    bluetoothBulb.setRed(value, callback);
+    bluetoothBulb.getRedBrightness(callback(value));
 
-    bluetoothBulb.setWhite(value, callback);
+    bluetoothBulb.getWhiteBrightness(callback(value));
 
-    bluetoothBulb.setBlue(value, callback);
+    bluetoothBulb.getBlueBrightness(callback(value));
 
-__Get Name__
+__Set Brightness__
 
-    bbluetoothBulb.getName(callback(name));
+    // value range is: 0 - 125
 
-__Has Paired__
+    bluetoothBulb.setGreenBrightness(value, callback);
 
-    // is the bulb paired with any devices (pair codes stored)
+    bluetoothBulb.setRedBrightness(value, callback);
 
-    bluetoothBulb.hasPaired(callback(hasPaired));
+    bluetoothBulb.setWhiteBrightness(value, callback);
 
-__Keep Alive__
+    bluetoothBulb.setBlueBrightness(value, callback);
+
+__Get Friendly Name__
+
+    bluetoothBulb.getFriendlyName(callback(friendlyName));
+
+__Get Pair Counter__
+
+    // how many pair keys are there
+
+    bluetoothBulb.getPairCounter(callback(pairCounter));
+
+__Disconnect Workaround__
 
     // no-op, keeps connection alive
 
-    bluetoothBulb.keepAlive(callback);
+    bluetoothBulb.disconnectWorkaround(callback);
 
-__Is Paired__
+__Get Bulb State__
 
-    // is the bulb pair now (current connection)
+    // get the current state of the bulb
 
-    bluetoothBulb.isPaired(callback(isPaired));
+    bluetoothBulb.getBulbState(callback(bulbState));
 
-__Unpair__
+__Remove Pairs__
 
-    // remove the current pair code from the bulb (will need to set a new pair code after operation)
+    // Remove all pair keys from the bulb (will need to set a new pair key after operation)
 
-    bluetoothBulb.unpair(callback);
+    bluetoothBulb.removePairs(callback);
+
+__Get Device Name__
+
+    bluetoothBulb.getDeviceName(callback(deviceName));
+
+__Get Model Number__
+
+    bluetoothBulb.getModelNumber(callback(modelNumber));
+
+__Get Firmware Revision__
+
+    bluetoothBulb.getFirmwareRevision(callback(firmwareRevision));
+
+__Get Hardware Revision__
+
+    bluetoothBulb.getHardwareRevision(callback(hardwareRevision));
+
+__Get Manufacturer Name__
+
+    bluetoothBulb.getManufacturerName(callback(manufacturerName));
+
