@@ -1,6 +1,6 @@
 {
   "name": "bluetooth-bulb",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A node.js library for the BluetoothBulb",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "author": "Sandeep Mistry <sandeep.mistry@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "noble": "~0.1.1"
+    "noble": "~0.2.0"
   },
   "devDependencies": {
     "jshint": "~2.1.2",
