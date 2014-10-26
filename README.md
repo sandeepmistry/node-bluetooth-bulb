@@ -1,6 +1,8 @@
 node-bluetooth-bulb
 ===================
 
+[![Analytics](https://ga-beacon.appspot.com/UA-56089547-1/sandeepmistry/node-bluetooth-bulb?pixel)](https://github.com/igrigorik/ga-beacon)
+
 A node.js library for the [BlueClick Bluetooth Bulb](http://www.bluebulb.com/)
 
 Special thanks to [@mrose17](https://github.com/mrose17) for sending me a bulb!
